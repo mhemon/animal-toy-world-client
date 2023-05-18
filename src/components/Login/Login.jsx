@@ -1,15 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import login from '../../assets/login.svg'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
+import { AuthContext } from '../../Provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Login = () => {
+    const { loginUser } = useContext(AuthContext)
+    const navigate = useNavigate()
     const handleLoginSubmit = (event) => {
         event.preventDefault()
         const form = event.target
         const email = form.email.value
         const password = form.password.value
         console.log(email, password);
+        loginUser(email, password)
+            .then(() => {
+                toast.success('Login Success');
+                navigate('/')
+            })
+            .catch(error => {
+                toast.error(error.message)
+            })
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -25,13 +37,13 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name='email' placeholder="email" className="input input-bordered" required/>
+                                <input type="email" name='email' placeholder="email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" name='password' placeholder="password" className="input input-bordered" required/>
+                                <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
