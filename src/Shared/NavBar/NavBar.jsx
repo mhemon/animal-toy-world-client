@@ -1,21 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.svg'
+import { AuthContext } from '../../Provider/AuthProvider';
+import { toast } from 'react-toastify';
+import { FaSignInAlt } from "react-icons/fa";
 
 const NavBar = () => {
+    const { user, logout } = useContext(AuthContext)
     const items = <>
         <li><Link to="/">Home</Link> </li>
-        <li> <Link to="/about">All Toys</Link> </li>
-        <li> <Link to="/about">My Toys</Link> </li>
-        <li> <Link to="/about">Add A Toy</Link> </li>
-        <li> <Link to="/about">Blogs</Link> </li>
-        {/* {user?.email ? <>
-            <li><Link to="/bookings">My Bookings</Link></li>
-            <li><button onClick={handleLogOut}>Log out</button></li>
-        </>
-            : <li> <Link to="/login">Login</Link> </li>
-        } */}
+        <li> <Link to="/alltoys">All Toys</Link> </li>
+        {user && <li> <Link to="/mytoys">My Toys</Link> </li>}
+        {user && <li> <Link to="/addtoys">Add A Toy</Link> </li>}
+        <li> <Link to="/blogs">Blogs</Link> </li>
     </>
+    const handleLogout = () => {
+        logout()
+        .then(() => {})
+        .catch(error => toast.error(error.message))
+    }
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -41,13 +44,18 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <div className="tooltip tooltip-bottom" data-tip="hello">
-                <div className="avatar">
-                    <div className=" w-12 me-2 rounded-full">
-                        <img src="https://images.unsplash.com/profile-1556011314127-d55a7ede3346?dpr=2&auto=format&fit=crop&w=32&h=32&q=60&crop=faces&bg=fff" />
+                {user ? <>
+                    <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                        <div className="avatar hidden md:block">
+                            <div className=" w-12 me-2 rounded-full">
+                                <img src={user?.photoURL} />
+                            </div>
+                        </div>
                     </div>
-                </div>
-                </div>
+                    <button onClick={handleLogout} className="btn btn-outline btn-error px-2">Logout</button>
+                </> : <>
+                <Link to='/login'><button className='btn btn-sm btn-primary md:btn md:btn-primary rounded-lg'>Login</button></Link>
+                </>}
             </div>
         </div>
     );
