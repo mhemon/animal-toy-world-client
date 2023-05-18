@@ -1,12 +1,15 @@
 import React from 'react';
+import { FaGoogle } from "react-icons/fa";
 
 const SocialLogin = () => {
     return (
-        <div className='text-center py-4'>
+        <div className='text-center p-4'>
             <div className="divider">OR</div>
-            <button className="btn btn-primary btn-circle btn-outline">
-                G
-            </button>
+            <div className="tooltip" data-tip="Login with Google">
+                <button className="btn btn-primary btn-circle btn-outline">
+                    <FaGoogle />
+                </button>
+            </div>
         </div>
     );
 };
