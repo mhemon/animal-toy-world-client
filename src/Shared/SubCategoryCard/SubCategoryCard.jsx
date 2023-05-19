@@ -1,10 +1,11 @@
 import React from 'react';
 import { Rating } from '@smastrom/react-rating'
+import { Link } from 'react-router-dom';
 
 const SubCategoryCard = ({ toy }) => {
-    const { images, name, price, rating } = toy
+    const {_id, images, name, price, rating } = toy
     return (
-        <div className="card card-compact md:w-96 bg-base-100 shadow-xl">
+        <div className="card card-compact md:w-96 bg-base-100 shadow-xl mt-2">
             <figure className="h-64"><img src={images} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
@@ -15,7 +16,9 @@ const SubCategoryCard = ({ toy }) => {
                     readOnly
                 /> <span className='text-lg'>{rating}</span></div>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">View Details</button>
+                    <Link to={`/toy/${_id}`}>
+                        <button className="btn btn-primary">View Details</button>
+                    </Link>
                 </div>
             </div>
         </div>
