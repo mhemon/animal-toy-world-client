@@ -1,9 +1,8 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/logo.svg'
 import { AuthContext } from '../../Provider/AuthProvider';
 import { toast } from 'react-toastify';
-import { FaSignInAlt } from "react-icons/fa";
 
 const NavBar = () => {
     const { user, logout } = useContext(AuthContext)
@@ -19,6 +18,13 @@ const NavBar = () => {
         .then(() => {})
         .catch(error => toast.error(error.message))
     }
+    const location = useLocation();
+    console.log(location.pathname);
+    
+    useEffect(() => {
+        document.title = `Animal Toy World | ${location.pathname.slice(1) || 'Home'}`;
+      }, [location]);
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
