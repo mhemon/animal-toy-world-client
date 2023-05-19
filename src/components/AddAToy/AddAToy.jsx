@@ -4,14 +4,36 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const AddAToy = () => {
     const { user } = useContext(AuthContext)
 
-    const [selectedValue, setSelectedValue] = useState('');
+    const [selectedValue, setSelectedValue] = useState('Teddy bear');
     const handleChange = (event) => {
         setSelectedValue(event.target.value);
     };
     const handleAddToys = (event) => {
         event.preventDefault()
         const form = event.target
-
+        const toyName = form.toyName.value
+        const toyPictureURL = form.toyPictureURL.value
+        const sellerName = form.sellerName.value
+        const price = form.price.value
+        const rating = form.rating.value
+        const quantity = form.quantity.value
+        const details = form.details.value
+        const email = user?.email
+        if(selectedValue === 'Teddy bear'){
+            setSelectedValue('TeddyBear')
+        }
+        const addANewToys = {
+            name: toyName,
+            images: toyPictureURL,
+            sellerName: sellerName,
+            price: price,
+            quantity: quantity,
+            rating: rating,
+            details: details,
+            sellerEmail: email,
+            subCategory: selectedValue
+        }
+        console.log(addANewToys);
     }
     return (
         <div>
