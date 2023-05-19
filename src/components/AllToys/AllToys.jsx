@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
 import AllToyRow from "../../Shared/AllToyRow/AllToyRow";
 
 const AllToys = () => {
