@@ -1,12 +1,33 @@
 import { FaEdit } from "react-icons/fa";
 import { AiOutlineDelete } from "react-icons/ai";
 import React, { useState } from 'react';
+import Swal from "sweetalert2";
 
 const MyToyRow = ({ toy }) => {
     const { _id, name, subCategory, price, quantity, details } = toy
     const detailsCopy = details
     const ellipsis = "...";
     const output = detailsCopy.split('').slice(0, 30).join('') + ellipsis
+
+    const handleDelete = () => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+            }
+          })
+    }
 
     return (
         <tr>
@@ -29,7 +50,7 @@ const MyToyRow = ({ toy }) => {
                 </div>
                 <div className="divider divider-horizontal"></div>
                 <div className="tooltip tooltip-top" data-tip="Delete">
-                    <button className="btn btn-square btn-error btn-outline"> <AiOutlineDelete size="1.2rem" /></button>
+                    <button onClick={handleDelete} className="btn btn-square btn-error btn-outline"> <AiOutlineDelete size="1.2rem" /></button>
                 </div>
             </th>
         </tr>
