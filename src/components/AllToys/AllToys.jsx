@@ -1,10 +1,32 @@
+import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
+import AllToyRow from "../../Shared/AllToyRow/AllToyRow";
 
 const AllToys = () => {
+
+    const [toys, setToys] = useState([])
+    const [searchResults, setSearchResults] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/alltoys?limit=20`)
+            .then(res => res.json())
+            .then(data => {
+                setToys(data)
+                setSearchResults(data)
+            })
+    }, [])
+
     const handleSearch = (event) => {
         event.preventDefault()
         const form = event.target
         const searchWord = form.search.value
-        console.log(searchWord);
+
+        const filteredResults = toys.filter((toy) => {
+            // Modify the condition based on your search requirements
+            return toy.name.toLowerCase().includes(searchWord.toLowerCase());
+        });
+
+        setSearchResults(filteredResults);
     }
     return (
         <div>
@@ -20,6 +42,51 @@ const AllToys = () => {
                         </div>
                     </div>
                 </form>
+            </section>
+            {/* card section */}
+            <section>
+                <div className="overflow-x-auto w-full">
+                    <table className="table w-full">
+                        {/* head */}
+                        <thead>
+                            <tr>
+                                <th>Seller Name</th>
+                                <th>Toy Name</th>
+                                <th>Sub-category</th>
+                                <th>Price</th>
+                                <th>Available Quantity</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {/* dynamic rows */}
+                            {
+                                searchResults.length > 0 ? (
+                                    searchResults.map((toy) => (
+                                        <AllToyRow key={toy._id} toy={toy} />
+                                    ))
+                                ) : (
+                                    toys.map((toy) => (
+                                        <AllToyRow key={toy._id} toy={toy} />
+                                    ))
+                                )
+                            }
+
+                        </tbody>
+                        {/* foot */}
+                        <tfoot>
+                            <tr>
+                                <th>Seller Name</th>
+                                <th>Toy Name</th>
+                                <th>Sub-category</th>
+                                <th>Price</th>
+                                <th>Available Quantity</th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+                </div>
             </section>
         </div>
     );
