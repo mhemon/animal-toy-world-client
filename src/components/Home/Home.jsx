@@ -48,11 +48,11 @@ const Home = () => {
                             <h2 className="card-title">Flappy The Elephant Stuffed</h2>
                             <p>Flappy is an adorable singing elephant that comes to life with the push of a button, featuring two play modes to entertain baby. He now features enhanced audio and volume controls for a more customized play session!</p>
                             <p className='font-semibold'>Price : $33</p>
-                            <p><Rating
+                            <div><Rating
                                 style={{ maxWidth: 180 }}
                                 value={6.7}
                                 readOnly
-                            /></p>
+                            /></div>
                             <div className="card-actions justify-end">
                                 <button onClick={() => toast.success('Added to buy list!')} className="btn btn-primary btn-wide">Buy</button>
                             </div>
@@ -67,11 +67,11 @@ const Home = () => {
                             <p>The Elephant in the room is your desire to obtain this Wild Calls Elephant stuffed animal. The actual size of this animal plush is 8 inches, allowing you to bring the plush toy with you as you walk your dog
                             </p>
                             <p className='font-semibold'>Price : $23</p>
-                            <p><Rating
+                            <div><Rating
                                 style={{ maxWidth: 180 }}
                                 value={6.7}
                                 readOnly
-                            /></p>
+                            /></div>
                             <div className="card-actions justify-end">
                                 <button onClick={() => toast.success('Added to buy list!')} className="btn btn-primary btn-wide">Buy</button>
                             </div>

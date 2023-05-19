@@ -72,18 +72,6 @@ const AllToys = () => {
                             }
 
                         </tbody>
-                        {/* foot */}
-                        <tfoot>
-                            <tr>
-                                <th>Seller Name</th>
-                                <th>Toy Name</th>
-                                <th>Sub-category</th>
-                                <th>Price</th>
-                                <th>Available Quantity</th>
-                                <th></th>
-                            </tr>
-                        </tfoot>
-
                     </table>
                 </div>
             </section>
