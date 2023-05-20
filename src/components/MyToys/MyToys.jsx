@@ -8,7 +8,8 @@ import { Link } from "react-router-dom";
 const MyToys = () => {
 
   const { user } = useContext(AuthContext)
-  const URL = `https://animal-toy-world-server.vercel.app/mytoys?email=${user?.email}`;
+  const [sortOrder, setSortOrder] = useState('ascending');
+  const URL = `https://animal-toy-world-server.vercel.app/mytoys?email=${user?.email}&sort=${sortOrder}`;
   const [mytoys, setMyToys] = useState([])
 
   useEffect(() => {
@@ -131,13 +132,10 @@ const MyToys = () => {
       })
   }
 
-  const handleAsc = () => {
-    console.log('asc');
-  }
-
-  const handleDes = () => {
-    console.log('des');
-  }
+  const handleSortClick = () => {
+    const newSortOrder = sortOrder === 'ascending' ? 'descending' : 'ascending';
+    setSortOrder(newSortOrder);
+  };
 
   return (
     <div>
@@ -153,10 +151,10 @@ const MyToys = () => {
               </label>
               <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                 <li>
-                  <button onClick={handleAsc}>Asc <AiOutlineArrowUp/></button>
+                  <button onClick={handleSortClick}>Asc <AiOutlineArrowUp/></button>
                 </li>
                 <li>
-                  <button onClick={handleDes}>Des <AiOutlineArrowDown/> </button>
+                  <button onClick={handleSortClick}>Des <AiOutlineArrowDown/> </button>
                 </li>
               </ul>
             </div>
