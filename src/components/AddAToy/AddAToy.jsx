@@ -15,9 +15,9 @@ const AddAToy = () => {
         const toyName = form.toyName.value
         const toyPictureURL = form.toyPictureURL.value
         const sellerName = form.sellerName.value
-        const price = form.price.value
-        const rating = form.rating.value
-        const quantity = form.quantity.value
+        const price = parseInt(form.price.value)
+        const rating = parseInt(form.rating.value)
+        const quantity = parseInt(form.quantity.value)
         const details = form.details.value
         const email = user?.email
         if(selectedValue === 'Teddy bear'){

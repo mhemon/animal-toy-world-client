@@ -45,6 +45,76 @@ const MyToys = () => {
           })
     }
 
+    const updateToys = (id) => {
+        fetch(`http://localhost:5000/toy/${id}`)
+        .then(res => res.json())
+        .then(data=> {
+            const {price, quantity, details} = data
+            console.log(data);
+            Swal.fire({
+                title: 'Update Toy Details',
+                html:
+                  `<input id="swal-price" class="swal2-input" placeholder="Price" type="number" step="0.01" value=${price}>` +
+                  `<input id="swal-quantity" class="swal2-input" placeholder="Available Quantity" value=${quantity}>` +
+                  `<textarea id="swal-description" class="swal2-textarea" placeholder="Detail Description">${details}</textarea>`,
+                showCancelButton: true,
+                confirmButtonText: 'Update',
+                preConfirm: () => {
+                  const price = parseFloat(document.getElementById('swal-price').value);
+                  const quantity = parseInt(document.getElementById('swal-quantity').value);
+                  const description = document.getElementById('swal-description').value;
+              
+                  // You can perform validation on the input values here if needed
+                  if (!price || !quantity || !description) {
+                    Swal.showValidationMessage('Please fill in all the fields');
+                    return false;
+                  }
+
+                  return {
+                    price: price,
+                    quantity: quantity,
+                    description: description
+                  };
+                },
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  const { price, quantity, description } = result.value;
+                    const updatedToyInfo = {price: price, quantity: quantity, details: description}
+                //   update operation into db
+                fetch(`http://localhost:5000/mytoys/${id}`,{
+                    method: 'PATCH',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(updatedToyInfo)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if(data.modifiedCount > 0){
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Toy Updated Success',
+                            html:
+                              `<p>Price: ${price}</p>` +
+                              `<p>Available Quantity: ${quantity}</p>` +
+                              `<p>Detail Description: ${description}</p>`,
+                            confirmButtonText: 'OK'
+                          });
+                    }else{
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Failed to modify toy details.'
+                          });
+                    }
+                })
+
+                }
+              });  
+        })        
+    }
+
     return (
         <div>
             <div className="overflow-x-auto w-full">
@@ -67,6 +137,7 @@ const MyToys = () => {
                             mytoys.map(toy => <MyToyRow key={toy._id}
                                 toy={toy}
                                 handleDelete={handleDelete}
+                                updateToys={updateToys}
                             ></MyToyRow>)
                         }
 

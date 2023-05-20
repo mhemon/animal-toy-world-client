@@ -3,7 +3,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import React, { useState } from 'react';
 import Swal from "sweetalert2";
 
-const MyToyRow = ({ toy, handleDelete }) => {
+const MyToyRow = ({ toy, handleDelete, updateToys }) => {
     const { _id, name, subCategory, price, quantity, details } = toy
     const detailsCopy = details
     const ellipsis = "...";
@@ -26,7 +26,7 @@ const MyToyRow = ({ toy, handleDelete }) => {
             </td>
             <th className='flex'>
                 <div className="tooltip tooltip-top" data-tip="Update">
-                    <button className="btn btn-square btn-primary btn-outline"> <FaEdit size="1.2rem" /></button>
+                    <button onClick={() => updateToys(_id)} className="btn btn-square btn-primary btn-outline"> <FaEdit size="1.2rem" /></button>
                 </div>
                 <div className="divider divider-horizontal"></div>
                 <div className="tooltip tooltip-top" data-tip="Delete">
