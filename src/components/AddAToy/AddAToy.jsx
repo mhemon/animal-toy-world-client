@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddAToy = () => {
     const { user } = useContext(AuthContext)
@@ -33,7 +34,28 @@ const AddAToy = () => {
             sellerEmail: email,
             subCategory: selectedValue
         }
-        console.log(addANewToys);
+        // console.log(addANewToys);
+        // post request
+        fetch('http://localhost:5000/addtoys', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(addANewToys)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.insertedId){
+                form.reset()
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your toy has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            }
+        })
     }
     return (
         <div>
@@ -82,7 +104,7 @@ const AddAToy = () => {
                         <label className="label">
                             <span className="label-text">Price</span>
                         </label>
-                        <input type="number" placeholder="please enter toy price" className="input input-bordered input-primary" name="price" required/>
+                        <input type="number" placeholder="please enter toy price" className="input input-bordered input-primary" step="0.01" name="price" required/>
                     </div>
                     <div className="form-control">
                         <label className="label">
