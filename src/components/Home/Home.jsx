@@ -54,7 +54,7 @@ const Home = () => {
                                 readOnly
                             /></div>
                             <div className="card-actions justify-end">
-                                <button onClick={() => toast.success('Added to buy list!')} className="btn btn-primary btn-wide">Buy</button>
+                                <button onClick={() => toast.success('Added to buy list!')} className="btn btn-primary md:btn-wide normal-case">Buy</button>
                             </div>
                         </div>
                     </div>
@@ -73,7 +73,7 @@ const Home = () => {
                                 readOnly
                             /></div>
                             <div className="card-actions justify-end">
-                                <button onClick={() => toast.success('Added to buy list!')} className="btn btn-primary btn-wide">Buy</button>
+                                <button onClick={() => toast.success('Added to buy list!')} className="btn btn-primary md:btn-wide normal-case">Buy</button>
                             </div>
                         </div>
                     </div>

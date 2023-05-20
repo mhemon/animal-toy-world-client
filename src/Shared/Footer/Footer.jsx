@@ -8,8 +8,7 @@ const Footer = () => {
                 <div className='w-28'>
                     <img className='w-full' src={logo} alt="" />
                 </div>
-                <p>Animal Toy World Ltd.<br />Where the best toys for animals are found <br /> Copyright © 2023 - All right reserved</p>
-                
+                <p className='text-base'>Animal Toy World Ltd.<br />Where the best toys for animals are found <br /> Copyright © 2023 - All right reserved</p>
             </div>
             <div>
                 <span className="footer-title">Services</span>
