@@ -15,7 +15,7 @@ const AddAToy = () => {
         const toyName = form.toyName.value
         const toyPictureURL = form.toyPictureURL.value
         const sellerName = form.sellerName.value
-        const price = parseInt(form.price.value)
+        const price = parseFloat(form.price.value)
         const rating = parseInt(form.rating.value)
         const quantity = parseInt(form.quantity.value)
         const details = form.details.value
@@ -50,7 +50,7 @@ const AddAToy = () => {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: 'Your toy has been saved',
+                    title: 'Toy added Successful!',
                     showConfirmButton: false,
                     timer: 1500
                   })

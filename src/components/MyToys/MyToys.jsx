@@ -54,9 +54,19 @@ const MyToys = () => {
             Swal.fire({
                 title: 'Update Toy Details',
                 html:
-                  `<input id="swal-price" class="swal2-input" placeholder="Price" type="number" step="0.01" value=${price}>` +
-                  `<input id="swal-quantity" class="swal2-input" placeholder="Available Quantity" value=${quantity}>` +
-                  `<textarea id="swal-description" class="swal2-textarea" placeholder="Detail Description">${details}</textarea>`,
+                  `<div>
+                  <label for="swal-price">Price:</label><br/>
+                  <input id="swal-price" class="swal2-input" placeholder="Price" type="number" step="0.01" value=${price}>
+                  </div>` +
+                  `<div class="mt-2">
+                  <label for="swal-quantity">Quantity:</label><br/>
+                  <input id="swal-quantity" class="swal2-input" placeholder="Available Quantity" value=${quantity}>
+                  </div>` +
+                  `<div class="mt-2">
+                  <label for="swal-description">Details Description:</label><br/>
+                  <textarea id="swal-description" class="swal2-textarea" placeholder="Detail Description">${details}</textarea>
+                  </div>
+                  `,
                 showCancelButton: true,
                 confirmButtonText: 'Update',
                 preConfirm: () => {
@@ -92,6 +102,10 @@ const MyToys = () => {
                 .then(data => {
                     console.log(data);
                     if(data.modifiedCount > 0){
+                        // update ui data using fetch
+                        fetch(URL)
+                        .then(res => res.json())
+                        .then(data => setMyToys(data))
                         Swal.fire({
                             icon: 'success',
                             title: 'Toy Updated Success',
@@ -118,7 +132,7 @@ const MyToys = () => {
     return (
         <div>
             <div className="overflow-x-auto w-full">
-            <h3 className="text-2xl text-center py-2 font-semibold">My Toys</h3>
+            <h3 className="text-2xl text-center py-2 font-semibold">My Toys : {mytoys.length}</h3>
                 <table className="table w-full">
                     {/* head */}
                     <thead>
