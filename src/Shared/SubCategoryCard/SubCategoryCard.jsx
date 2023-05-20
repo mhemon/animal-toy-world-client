@@ -1,6 +1,8 @@
 import React from 'react';
 import { Rating } from '@smastrom/react-rating'
 import { Link } from 'react-router-dom';
+import { AiOutlineArrowRight } from "react-icons/ai";
+
 
 const SubCategoryCard = ({ toy }) => {
     const {_id, images, name, price, rating } = toy
@@ -17,7 +19,7 @@ const SubCategoryCard = ({ toy }) => {
                 /> <span className='text-lg'>{rating}</span></div>
                 <div className="card-actions justify-end">
                     <Link to={`/toy/${_id}`}>
-                        <button className="btn btn-primary normal-case">View Details</button>
+                        <button className="btn btn-outline btn-primary normal-case">View Details <AiOutlineArrowRight style={{marginLeft: '10px'}}/></button>
                     </Link>
                 </div>
             </div>

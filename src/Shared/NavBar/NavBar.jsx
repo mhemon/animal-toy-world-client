@@ -60,7 +60,7 @@ const NavBar = () => {
                     </div>
                     <button onClick={handleLogout} className="btn btn-outline btn-error px-2">Logout</button>
                 </> : <>
-                <Link to='/login'><button className='btn btn-sm btn-primary md:btn md:btn-primary rounded-lg'>Login</button></Link>
+                <Link to='/login'><button className='btn btn-sm btn-primary btn-outline normal-case md:btn md:btn-primary md:normal-case rounded-lg md:btn-outline'>Login</button></Link>
                 </>}
             </div>
         </div>

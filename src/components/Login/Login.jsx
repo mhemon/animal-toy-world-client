@@ -1,13 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import login from '../../assets/login.svg'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const { loginUser } = useContext(AuthContext)
     const navigate = useNavigate()
+
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
     const handleLoginSubmit = (event) => {
         event.preventDefault()
         const form = event.target
@@ -16,8 +21,14 @@ const Login = () => {
         console.log(email, password);
         loginUser(email, password)
             .then(() => {
-                toast.success('Login Success');
-                navigate('/')
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Login Success!',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 toast.error(error.message)
@@ -49,12 +60,12 @@ const Login = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button type='submit' className="btn btn-primary">Login</button>
+                                <button type='submit' className="btn btn-primary normal-case">Login</button>
                             </div>
                         </form>
                     </div>
                     <p className='text-center'>New here? <Link to='/register' className='text-primary'>Signup</Link></p>
-                    <SocialLogin />
+                    <SocialLogin from={from}/>
                 </div>
             </div>
         </div>

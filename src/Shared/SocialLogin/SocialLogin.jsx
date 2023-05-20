@@ -3,17 +3,24 @@ import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../Provider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
-const SocialLogin = () => {
+const SocialLogin = ({ from }) => {
     const { googleLogin } = useContext(AuthContext)
     const navigate = useNavigate()
     const handleGoogle = () => {
         googleLogin()
-        .then(() => {
-            toast.success('Login Success')
-            navigate('/')
-        })
-        .catch(error => toast.error(error.message))
+            .then(() => {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Login Success!',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                navigate(from, { replace: true })
+            })
+            .catch(error => toast.error(error.message))
     }
     return (
         <div className='text-center p-4'>
