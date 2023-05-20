@@ -16,7 +16,7 @@ const AddAToy = () => {
         const toyPictureURL = form.toyPictureURL.value
         const sellerName = form.sellerName.value
         const price = parseFloat(form.price.value)
-        const rating = parseInt(form.rating.value)
+        const rating = parseFloat(form.rating.value)
         const quantity = parseInt(form.quantity.value)
         const details = form.details.value
         const email = user?.email
@@ -36,7 +36,7 @@ const AddAToy = () => {
         }
         // console.log(addANewToys);
         // post request
-        fetch('http://localhost:5000/addtoys', {
+        fetch('https://animal-toy-world-server.vercel.app/addtoys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -110,7 +110,7 @@ const AddAToy = () => {
                         <label className="label">
                             <span className="label-text">Rating</span>
                         </label>
-                        <input type="number" placeholder="please enter toy rating 1 to 10" className="input input-bordered input-primary" min="1" max="10" step="0.01" name="rating" required/>
+                        <input type="number" placeholder="please enter toy rating 1 to 5" className="input input-bordered input-primary" min="1" max="5" step="0.01" name="rating" required/>
                     </div>
                     <div className="form-control">
                         <label className="label">

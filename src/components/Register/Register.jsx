@@ -1,14 +1,19 @@
 import React, { useContext } from 'react';
 import signup from '../../assets/login.svg'
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { updateCurrentUser, updateProfile } from 'firebase/auth';
 import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext)
     const navigate = useNavigate()
+
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
     const handleRegisterSubmit = (event) => {
         event.preventDefault()
         const form = event.target
@@ -24,8 +29,14 @@ const Register = () => {
                 photoURL: photourl
             })
             .then(() => {
-                toast.success('Register Success');
-                navigate('/')
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Register Success!',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                navigate(from, { replace: true })
             })
             .catch(error => toast.error(error.message))
         })
@@ -73,7 +84,7 @@ const Register = () => {
                         </form>
                     </div>
                     <p className='text-center'>Alreday have an account? <Link to='/login' className='text-primary'>Login</Link></p>
-                    <SocialLogin />
+                    <SocialLogin from={from}/>
                 </div>
             </div>
         </div>

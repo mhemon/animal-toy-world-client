@@ -27,16 +27,16 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/mytoys',
-                element: <MyToys/>
+                element: <PrivateRoutes><MyToys/></PrivateRoutes>
             },
             {
                 path: '/addtoys',
-                element: <AddAToy/>
+                element: <PrivateRoutes><AddAToy/></PrivateRoutes>
             },
             {
                 path: '/toy/:id',
                 element: <PrivateRoutes><SingleToyDetails/></PrivateRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
+                loader: ({params}) => fetch(`https://animal-toy-world-server.vercel.app/toy/${params.id}`)
             },
             {
                 path: '/blogs',

@@ -10,7 +10,7 @@ import { FaCcMastercard, FaCcPaypal, FaCcStripe, FaCcVisa } from "react-icons/fa
 const Home = () => {
     const [images, setImages] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/gallery')
+        fetch('https://animal-toy-world-server.vercel.app/gallery')
             .then(res => res.json())
             .then(data => setImages(data))
     }, [])
@@ -50,11 +50,11 @@ const Home = () => {
                             <p className='font-semibold'>Price : $33</p>
                             <div><Rating
                                 style={{ maxWidth: 180 }}
-                                value={6.7}
+                                value={3.7}
                                 readOnly
                             /></div>
                             <div className="card-actions justify-end">
-                                <button onClick={() => toast.success('Added to buy list!')} className="btn btn-primary md:btn-wide normal-case">Buy</button>
+                                <button onClick={() => toast.success('Added to buy list!')} className="btn btn-primary btn-outline md:btn-wide normal-case">Buy</button>
                             </div>
                         </div>
                     </div>
@@ -69,11 +69,11 @@ const Home = () => {
                             <p className='font-semibold'>Price : $23</p>
                             <div><Rating
                                 style={{ maxWidth: 180 }}
-                                value={6.7}
+                                value={4.7}
                                 readOnly
                             /></div>
                             <div className="card-actions justify-end">
-                                <button onClick={() => toast.success('Added to buy list!')} className="btn btn-primary md:btn-wide normal-case">Buy</button>
+                                <button onClick={() => toast.success('Added to buy list!')} className="btn btn-primary btn-outline md:btn-wide normal-case">Buy</button>
                             </div>
                         </div>
                     </div>

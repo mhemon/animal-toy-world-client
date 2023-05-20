@@ -64,7 +64,8 @@ const Login = () => {
                             </div>
                         </form>
                     </div>
-                    <p className='text-center'>New here? <Link to='/register' className='text-primary'>Signup</Link></p>
+                    <p className='text-center'>New here? <Link to='/register' className='text-primary'>Signup</Link>
+                    </p>
                     <SocialLogin from={from}/>
                 </div>
             </div>

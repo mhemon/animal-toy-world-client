@@ -9,19 +9,19 @@ const TabLayout = () => {
     const [horse, setHorse] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/category?subcategory=TeddyBear')
+        fetch('https://animal-toy-world-server.vercel.app/category?subcategory=TeddyBear')
             .then(res => res.json())
             .then(data => setTeddyBear(data))
     }, [])
 
     useEffect(() => {
-        fetch('http://localhost:5000/category?subcategory=Dinosaur')
+        fetch('https://animal-toy-world-server.vercel.app/category?subcategory=Dinosaur')
             .then(res => res.json())
             .then(data => setDinosaur(data))
     }, [])
 
     useEffect(() => {
-        fetch('http://localhost:5000/category?subcategory=Horse')
+        fetch('https://animal-toy-world-server.vercel.app/category?subcategory=Horse')
             .then(res => res.json())
             .then(data => setHorse(data))
     }, [])
