@@ -132,10 +132,21 @@ const MyToys = () => {
       })
   }
 
-  const handleSortClick = () => {
-    const newSortOrder = sortOrder === 'ascending' ? 'descending' : 'ascending';
-    setSortOrder(newSortOrder);
+  const handleAsc = () => {
+    if(sortOrder === 'ascending'){
+      Swal.fire('Data already in Asc Order')
+      return
+    }
+    setSortOrder('ascending')
   };
+
+  const handleDes = () => {
+    if(sortOrder === 'descending'){
+      Swal.fire('Data already in Des Order')
+      return
+    }
+    setSortOrder('descending')
+  }
 
   return (
     <div>
@@ -151,10 +162,10 @@ const MyToys = () => {
               </label>
               <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                 <li>
-                  <button onClick={handleSortClick}>Asc <AiOutlineArrowUp/></button>
+                  <button onClick={handleAsc}>Asc <AiOutlineArrowUp/></button>
                 </li>
                 <li>
-                  <button onClick={handleSortClick}>Des <AiOutlineArrowDown/> </button>
+                  <button onClick={handleDes}>Des <AiOutlineArrowDown/> </button>
                 </li>
               </ul>
             </div>
