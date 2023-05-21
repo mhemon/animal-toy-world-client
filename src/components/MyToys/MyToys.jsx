@@ -124,7 +124,12 @@ const MyToys = () => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
                   // update ui data using fetch
-                  fetch(URL)
+                  fetch(URL, {
+                    method: 'GET',
+                    headers: {
+                      authorization: `Bearer ${localStorage.getItem('token')}`
+                    }
+                  })
                     .then(res => res.json())
                     .then(data => setMyToys(data))
                   Swal.fire({

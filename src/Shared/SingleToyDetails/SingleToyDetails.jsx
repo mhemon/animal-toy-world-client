@@ -2,12 +2,17 @@ import { Rating } from "@smastrom/react-rating";
 import { useLoaderData } from "react-router-dom";
 import { AiFillHeart } from "react-icons/ai";
 import Swal from "sweetalert2";
+import { useEffect } from "react";
 
 const SingleToyDetails = () => {
 
     const data = useLoaderData()
 
     const { price, quantity, details, name, images, rating, sellerName, sellerEmail } = data
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [])
 
     return (
         <div className="hero min-h-screen bg-base-200" data-aos="fade-left">
