@@ -19,7 +19,6 @@ const NavBar = () => {
         .catch(error => toast.error(error.message))
     }
     const location = useLocation();
-    console.log(location.pathname);
     
     useEffect(() => {
         document.title = `Animal Toy World | ${location.pathname.slice(1) || 'Home'}`;

@@ -34,12 +34,13 @@ const AddAToy = () => {
             sellerEmail: email,
             subCategory: selectedValue
         }
-        // console.log(addANewToys);
+        console.log(JSON.stringify(addANewToys));
         // post request
         fetch('https://animal-toy-world-server.vercel.app/addtoys', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('token')}`
             },
             body: JSON.stringify(addANewToys)
         })
