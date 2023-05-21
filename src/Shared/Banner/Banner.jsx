@@ -1,6 +1,6 @@
 const Banner = () => {
     return (
-        <div className="carousel overflow-x-auto">
+        <div className="carousel overflow-x-auto" data-aos="fade-left">
             <div className="carousel-inner flex space-x-4 md:space-x-8 lg:space-x-12">
                 <div className="carousel-item w-full md:w-1/2 lg:w-1/3">
                     {/* Slide 1 content */}

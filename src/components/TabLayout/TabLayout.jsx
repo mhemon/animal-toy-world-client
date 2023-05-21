@@ -35,7 +35,7 @@ const TabLayout = () => {
             </TabList>
 
             <TabPanel>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3' data-aos="fade-left">
                     {
                         teddyBear.map(bear => <SubCategoryCard key={bear._id}
                             toy={bear}
@@ -44,7 +44,7 @@ const TabLayout = () => {
                 </div>
             </TabPanel>
             <TabPanel>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3' data-aos="fade-left">
                     {
                         dinosaur.map(dino => <SubCategoryCard key={dino._id}
                             toy={dino}
@@ -53,7 +53,7 @@ const TabLayout = () => {
                 </div>
             </TabPanel>
             <TabPanel>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3' data-aos="fade-left">
                     {
                         horse.map(hor => <SubCategoryCard key={hor._id}
                             toy={hor}

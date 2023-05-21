@@ -40,7 +40,7 @@ const Home = () => {
                 <p className='text-center pt-2 text-primary'>CUSTOMERS LOVE</p>
                 <div className="divider"></div>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4 px-2'>
-                    <div className="card lg:card-side bg-base-100 shadow-xl">
+                    <div className="card lg:card-side bg-base-100 shadow-xl" data-aos="fade-left">
                         <div className='md:w-1/2'>
                             <figure><img className='w-full h-full' src="https://m.media-amazon.com/images/I/615csEIOkdL._AC_UL600_FMwebp_QL65_.jpg" alt="Album" /></figure>
                         </div>
@@ -58,7 +58,7 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="card lg:card-side bg-base-100 shadow-xl">
+                    <div className="card lg:card-side bg-base-100 shadow-xl" data-aos="fade-left">
                         <div className='md:w-1/2'>
                             <figure><img className='w-full h-full' src="https://m.media-amazon.com/images/I/71HnZzfvoxL._AC_UL600_FMwebp_QL65_.jpg" alt="Album" /></figure>
                         </div>
@@ -82,13 +82,13 @@ const Home = () => {
             {/* new section */}
             <section className='mt-10'>
                 <div className="flex flex-col md:flex-row">
-                    <div className="basis-full md:basis-4/12 px-2 ">
+                    <div className="basis-full md:basis-4/12 px-2 " data-aos="fade-left">
                         <div className='text-center border space-y-2 py-4 '>
                             <h3 className='font-bold text-center text-2xl md:text-4xl'>Free Shipping</h3>
                             <p>On orders over $60.00</p>
                         </div>
                     </div>
-                    <div className="basis-full md:basis-4/12 px-2">
+                    <div className="basis-full md:basis-4/12 px-2" data-aos="fade-left">
                         <div className="basis-full md:basis-4/12 px-2">
                             <div className='text-center border space-y-2 py-4'>
                                 <h3 className='font-bold text-center text-2xl md:text-4xl'>Free Returns</h3>
@@ -96,7 +96,7 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="basis-full md:basis-4/12 px-2">
+                    <div className="basis-full md:basis-4/12 px-2" data-aos="fade-left">
                         <div className="basis-full md:basis-4/12 px-2">
                             <div className='text-center border space-y-2 py-4'>
                                 <h3 className='font-bold text-center text-2xl md:text-3xl'>Secure Payments</h3>
@@ -118,7 +118,7 @@ const Home = () => {
                 <div className="divider"></div>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                     {/* news 1 */}
-                    <div className="card card-compact md:w-96 bg-base-100 shadow-xl">
+                    <div className="card card-compact md:w-96 bg-base-100 shadow-xl" data-aos="fade-left">
                         <figure className='h-64'><img src="https://m.media-amazon.com/images/I/8139L3k+9aL._AC_UL600_FMwebp_QL65_.jpg" alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">Animal Toy World Launches New Line of Educational Toys</h2>
@@ -126,7 +126,7 @@ const Home = () => {
                         </div>
                     </div>
                     {/* news 2 */}
-                    <div className="card card-compact md:w-96 bg-base-100 shadow-xl">
+                    <div className="card card-compact md:w-96 bg-base-100 shadow-xl" data-aos="fade-left">
                         <figure className='h-64'><img src="https://images.unsplash.com/photo-1580893246395-52aead8960dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">Animal Toy World Partners with Wildlife Conservation Organization</h2>
@@ -134,7 +134,7 @@ const Home = () => {
                         </div>
                     </div>
                     {/* news 3 */}
-                    <div className="card card-compact md:w-96 bg-base-100 shadow-xl">
+                    <div className="card card-compact md:w-96 bg-base-100 shadow-xl" data-aos="fade-left">
                         <figure className='h-64'><img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">Animal Toy World Announces Summer Sale</h2>
