@@ -1,21 +1,40 @@
+import React, { useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+
+import { Navigation } from "swiper";
+
 const Banner = () => {
     return (
-        <div className="carousel overflow-x-auto" data-aos="fade-left">
-            <div className="carousel-inner flex space-x-4 md:space-x-8 lg:space-x-12">
-                <div className="carousel-item w-full md:w-1/2 lg:w-1/3">
-                    {/* Slide 1 content */}
-                    <img src="https://i.ibb.co/Jqyf7pH/tim-gouw-Jsj-Xn-Wlh8-g-unsplash.jpg" alt="" />
+        <Swiper navigation={true} modules={[Navigation]} className="md:h-[400px]">
+            <SwiperSlide>
+                <div className="flex items-center justify-center md:h-screen">
+                    <img src="https://i.ibb.co/hd8yDgj/julker-naeem-Hst08-Iwypa0-unsplash.jpg" alt="" />
                 </div>
-                <div className="carousel-item w-full md:w-1/2 lg:w-1/3">
-                    {/* Slide 2 content */}
-                    <img src="https://i.ibb.co/jZyc9qc/hobi-industri-x-Bx-Ew-E-TBfo-unsplash.jpg" alt="" />
+
+            </SwiperSlide>
+            <SwiperSlide>
+                <div className="flex items-center justify-center md:h-screen">
+                    <img src="https://i.ibb.co/X8FHZcP/richard-stachmann-BOn-P0o-MNVk-Q-unsplash.jpg" alt="" />
                 </div>
-                <div className="carousel-item w-full md:w-1/2 lg:w-1/3">
-                    {/* Slide 3 content */}
-                    <img src="https://i.ibb.co/JxQKMZh/vale-zmeykov-3lz-ULokw-LZo-unsplash.jpg" alt="" />
+
+            </SwiperSlide>
+
+            <SwiperSlide>
+                <div className="flex items-center justify-center md:h-screen">
+                    <img src="https://i.ibb.co/2cSvWt3/jerry-wang-c-Cjlha-Rx-Ns-M-unsplash.jpg" alt="" />
                 </div>
-            </div>
-        </div>
+
+            </SwiperSlide>
+            <SwiperSlide>
+                <div className="flex items-center justify-center md:h-screen">
+                    <img src="https://i.ibb.co/NxZxKwZ/marina-shatskih-n-Ko-IXt-Efk-Z8-unsplash.jpg" alt="" />
+                </div>
+            </SwiperSlide>
+        </Swiper>
     );
 };
 

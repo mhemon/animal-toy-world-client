@@ -1,0 +1,16 @@
+.react-tabs__tab {
+    margin: 20px;
+}
+.react-tabs__tab-list {
+    border-bottom: none;
+}
+
+.react-tabs__tab--selected {
+    font-weight: bold;
+}
+
+@media screen and (max-width: 576px) {
+    .react-tabs__tab {
+        margin: 0px;
+    }
+}

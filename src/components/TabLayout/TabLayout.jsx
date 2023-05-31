@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import SubCategoryCard from '../../Shared/SubCategoryCard/SubCategoryCard';
 import '@smastrom/react-rating/style.css'
+import './TabLayout.css'
 
 const TabLayout = () => {
     const [teddyBear, setTeddyBear] = useState([])

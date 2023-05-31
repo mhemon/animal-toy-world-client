@@ -1,7 +1,21 @@
 import React from 'react';
 import logo from '../../assets/logo.svg'
+import Swal from 'sweetalert2';
 
 const Footer = () => {
+    const handleEmailSubs = (event) => {
+        event.preventDefault()
+        const form = event.target
+        const email = form.email.value
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Subscribe our newsletter',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        form.reset()
+    }
     return (
         <footer className="footer p-10 bg-neutral text-neutral-content">
             <div>
@@ -36,10 +50,10 @@ const Footer = () => {
                     <label className="label">
                         <span className="label-text text-white">Enter your email address</span>
                     </label>
-                    <div className="relative">
-                        <input type="text" placeholder="username@site.com" className="input input-bordered w-full px-2 pr-16" />
-                        <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">Subscribe</button>
-                    </div>
+                    <form onSubmit={handleEmailSubs} className="relative text-black">
+                        <input type="email" placeholder="your email please" className="input input-bordered w-full px-2 pr-16" name='email' required/>
+                        <button type='submit' className="btn btn-primary absolute top-0 right-0 rounded-l-none">Subscribe</button>
+                    </form>
                 </div>
             </div>
         </footer>

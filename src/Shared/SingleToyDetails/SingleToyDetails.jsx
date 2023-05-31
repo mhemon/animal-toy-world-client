@@ -17,10 +17,16 @@ const SingleToyDetails = () => {
     return (
         <div className="hero min-h-screen bg-base-200" data-aos="fade-left">
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <img src={images} className="md:max-w-sm rounded-lg shadow-2xl" />
+                {/* <img src={images} className="md:max-w-sm rounded-lg shadow-2xl" /> */}
+                <div className='relative group'>
+                    <img className='relative z-10 w-11/12 h-full mx-auto rounded-md' src={images} alt="Shoes" />
+                    <div className="absolute -bottom-1 left-5 h-full w-full transform translate-x-2 translate-y-2">
+                        <div className="absolute h-full w-11/12 bg-primary  rounded-md"></div>
+                    </div>
+                </div>
                 <div>
                     <h1 className="text-2xl md:text-5xl font-bold">{name}</h1>
-                    <p className="pt-6">{details}</p>
+                    <p className="pt-6 w-full md:w-2/3 text-justify">{details}</p>
                     <p className="py-6 font-semibold">Seller name : {sellerName}</p>
                     <p className="font-semibold">Seller Email : {sellerEmail}</p>
                     <p className="py-6 font-semibold">Price : ${price} <span className="ms-8"></span> Quantity : {quantity}</p>
